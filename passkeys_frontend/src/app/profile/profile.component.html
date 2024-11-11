@@ -1,0 +1,38 @@
+<div class="profile-container">
+  <h2>User Profile</h2>
+  <div class="user-data">
+    <form *ngIf="isEditing; else viewMode">
+      <label for="username">Username:</label>
+      <input id="username" [(ngModel)]="username" name="username" disabled />
+
+      <label for="email">Email:</label>
+      <input id="email" [(ngModel)]="email" name="email" />
+
+      <label for="firstName">First Name:</label>
+      <input id="firstName" [(ngModel)]="firstName" name="firstName" />
+
+      <label for="lastName">Last Name:</label>
+      <input id="lastName" [(ngModel)]="lastName" name="lastName" />
+
+      <button type="button" (click)="saveProfile()">Save</button>
+      <button type="button" (click)="cancelEdit()">Cancel</button>
+    </form>
+    <ng-template #viewMode>
+      <p><strong>Username:</strong> {{ username }}</p>
+      <p><strong>Email:</strong> {{ email }}</p>
+      <p><strong>First Name:</strong> {{ firstName }}</p>
+      <p><strong>Last Name:</strong> {{ lastName }}</p>
+      <button type="button" (click)="editProfile()">Edit</button>
+    </ng-template>
+  </div>
+  <div class="devices-info">
+    <h3>Devices with Passkeys</h3>
+    <ul>
+      <li *ngFor="let device of devices">{{ device }}</li>
+    </ul>
+  </div>
+  <div class="passkeys-info">
+    <h3>Why Use Passkeys?</h3>
+    <p>Passkeys provide a secure and convenient way to authenticate without the need for passwords. They are resistant to phishing attacks and offer a seamless user experience.</p>
+  </div>
+</div>
