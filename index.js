@@ -17,11 +17,11 @@ app.listen(process.env.PORT || 3000, '0.0.0.0', err => {
     if (err) throw err;
     console.log('Server started on port', process.env.PORT || 3000);
 });
-app.use(express.static(path.join(__dirname, 'passkey-frontend/dist/passkey-frontend/browser')));
+app.use(express.static(path.join(__dirname, 'passkeys_frontend/dist/passkey-frontend/browser')));
 
 // Catch-all route to handle Angular routing
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'passkey-frontend/dist/passkey-frontend/browser/index.html'));
+    res.sendFile(path.join(__dirname, 'passkeys_frontend/dist/passkey-frontend/browser/index.html'));
 });
 
 app.post('/registro/inicio', (req, res) => {
@@ -37,7 +37,8 @@ app.post('/registro/inicio', (req, res) => {
             {type: 'public-key', alg: -257},
         ],
         authenticatorSelection: {
-            authenticatorAttachment: 'platform',
+            //se puede poner platform también
+            authenticatorAttachment: 'platform', // Allow both platform and cross-platform authenticators
             userVerification: 'required',
             residentKey: 'preferred',
             requireResidentKey: false,
@@ -93,7 +94,7 @@ app.post('/login/inicio', (req, res) => {
         allowCredentials: [{
             type: 'public-key',
             id: users[username].credential.id,
-            transports: ['internal'],
+            transports: ['internal', 'ble', 'nfc', 'usb'], // Allow various transports for both mobile and desktop devices
         }],
         userVerification: 'preferred',
     });

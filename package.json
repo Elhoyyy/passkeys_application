@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "cd passkeys_frontend && npm i && npm run build",
-    "start": "node index.js"
+    "start": "cd passkeys_frontend && ng build --configuration production && cd .. && node index.js"
   },
   "keywords": [],
   "author": "",

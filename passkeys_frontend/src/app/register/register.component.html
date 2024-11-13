@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="passkeys-section">
+    <h1>Register</h1>
+    <div class="input-container">
+      <input [(ngModel)]="username" placeholder="Username" />
+      <input [(ngModel)]="firstName" placeholder="First Name" />
+      <input [(ngModel)]="lastName" placeholder="Last Name" />
+      <input [(ngModel)]="email" placeholder="Email" />
+      <input [(ngModel)]="deviceName" placeholder="Device Name" /> <!-- Add deviceName field -->
+      <button (click)="registro()">Register</button>
+      <button (click)="auth()">Return</button>
+    </div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </div>
+</div>

@@ -1,6 +1,5 @@
 <div class="top-bar">
-  <button (click)="registro()">Register</button>
-  <button (click)="login()">Login</button>
+  <button (click)="navigateToRegister()">Register</button> <!-- Use the new method to navigate to register -->
 </div>
 <div class="container">
   <div class="passkeys-section">
@@ -8,15 +7,21 @@
     <p>Experience the future of secure authentication with passkeys.</p>
     <div class="input-container">
       <input [(ngModel)]="username" placeholder="Username" />
-      <input [(ngModel)]="firstName" placeholder="First Name" />
-      <input [(ngModel)]="lastName" placeholder="Last Name" />
-      <input [(ngModel)]="email" placeholder="Email" />
-      <input [(ngModel)]="deviceName" placeholder="Device Name" /> <!-- Add deviceName field -->
+      <button (click)="login()">Login</button>
+    </div>
+    <div>
+      <p>Don't have an account?
+      <a (click)="navigateToRegister()">Sign up!</a>    </p>
     </div>
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
   </div>
   <div class="background-tooltip">
     <strong>What are passkeys?</strong>
     <p>Passkeys provide a secure and convenient way to authenticate without the need for passwords. They are resistant to phishing attacks and offer a seamless user experience.</p>
+  </div>
+  <div class="credits">
+    <p>Auth: Eloy Sastre</p>
+    <p>github: elhoyyy</p>
+    <p>UDC: eloy.sastre&#64;udc.es</p>
   </div>
 </div>

@@ -43,4 +43,8 @@ export class ProfileComponent {
     console.log('Perfil guardado');
     this.isEditing = false;
   }
+
+  logout() {
+    this.router.navigate(['/auth']);
+  }
 }

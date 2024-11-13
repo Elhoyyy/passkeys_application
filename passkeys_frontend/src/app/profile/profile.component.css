@@ -55,10 +55,19 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
 
 .user-data button:hover {
   background-color: #ff3b30;
+}
+
+.user-data button:last-child {
+  background-color: #dc3545;
+}
+
+.user-data button:last-child:hover {
+  background-color: #c82333;
 }
 
 .user-data form label {
@@ -106,4 +115,31 @@
 .passkeys-info p {
   margin: 0;
   color: #666;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  width: calc(100% - 20px); /* Adjust width to move buttons slightly to the left */
+  z-index: 10;
+}
+
+.top-bar button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.top-bar button:hover {
+  background-color: #c82333;
 }
